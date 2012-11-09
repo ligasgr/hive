@@ -1,0 +1,9 @@
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\HiveDb.mdf
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\HiveDb_log.LDF
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\Model.Tests.dll
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\Model.Tests.pdb
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\Model.dll
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\bin\Debug\Model.pdb
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\obj\Debug\ResolveAssemblyReference.cache
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\obj\Debug\Model.Tests.dll
+D:\dev\wrk\projects\net\hive\Hive\Model.Tests\obj\Debug\Model.Tests.pdb

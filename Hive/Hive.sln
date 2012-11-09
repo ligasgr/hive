@@ -1,11 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGui", "WpfGui\WpfGui.csproj", "{2B2FBE05-74EF-429A-8B42-248AB031F213}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveWpfGui", "HiveWpfGui\HiveWpfGui.csproj", "{2B2FBE05-74EF-429A-8B42-248AB031F213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveModel", "HiveModel\HiveModel.csproj", "{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveCore", "HiveCore\HiveCore.csproj", "{2A789317-083D-4294-B53B-190B1D3476E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveModel.Tests", "HiveModel.Tests\HiveModel.Tests.csproj", "{948C395C-9949-48F6-9429-7272B7EC9D30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A61FE5D-CE33-4E72-99F5-B13DB1A1F8D0}"
+	ProjectSection(SolutionItems) = preProject
+		Hive.vsmdi = Hive.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
 EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Hive.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -35,6 +49,26 @@ Global
 		{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2A789317-083D-4294-B53B-190B1D3476E5}.Release|x86.ActiveCfg = Release|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{948C395C-9949-48F6-9429-7272B7EC9D30}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
