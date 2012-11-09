@@ -53,10 +53,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\HiveDb.mdf" />
-    <Content Include="App_Data\HiveDb_log.ldf">
-      <DependentUpon>HiveDb.mdf</DependentUpon>
-    </Content>
     <Content Include="HiveService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -74,6 +70,9 @@
       <Project>{DB4F1E3A-D82C-4F1E-8C32-5C4C39016E1B}</Project>
       <Name>HiveServiceLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

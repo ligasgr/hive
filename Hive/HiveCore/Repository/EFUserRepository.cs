@@ -11,11 +11,11 @@ namespace Hive.Repository
 
         private HiveEntities db = new HiveEntities();
 
-        public Hive.Model.Domain.User Find(string login)
+        public Hive.Domain.User Find(string login)
         {
             var result = from u in db.Users where u.Login == login select u;
-            Hive.Model.User record = result.Single();
-            return new Hive.Model.Domain.User(record.Login, record.Password);
+            User record = result.Single();
+            return new Hive.Domain.User(record.Login, record.Password);
         }
     }
 }

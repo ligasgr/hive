@@ -50,16 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="web.config1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HiveCore\HiveCore.csproj">
       <Project>{2A789317-083D-4294-B53B-190B1D3476E5}</Project>
       <Name>HiveCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HiveModel\HiveModel.csproj">
-      <Project>{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}</Project>
-      <Name>HiveModel</Name>
+    <ProjectReference Include="..\HiveDomain\HiveDomain.csproj">
+      <Project>{48135EAA-0A40-44DC-87C8-451BA6F1753E}</Project>
+      <Name>HiveDomain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

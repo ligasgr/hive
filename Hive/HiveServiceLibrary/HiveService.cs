@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Hive.Model.Domain;
+using Hive.Domain;
 
 namespace Hive.ServiceLibrary
 {
