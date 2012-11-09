@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2A789317-083D-4294-B53B-190B1D3476E5}</ProjectGuid>
+    <ProjectGuid>{48135EAA-0A40-44DC-87C8-451BA6F1753E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hive</RootNamespace>
-    <AssemblyName>HiveCore</AssemblyName>
+    <AssemblyName>HiveDomain</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,19 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login\EFAuthenticationService.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\EFUserRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HiveDomain\HiveDomain.csproj">
-      <Project>{48135EAA-0A40-44DC-87C8-451BA6F1753E}</Project>
-      <Name>HiveDomain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HiveModel\HiveModel.csproj">
-      <Project>{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}</Project>
-      <Name>HiveModel</Name>
-    </ProjectReference>
+    <Compile Include="Login\LoginService.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -24,32 +24,32 @@ namespace Hive.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class HiveDbConnectionSettings : ObjectContext
+    public partial class HiveEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new HiveDbConnectionSettings object using the connection string found in the 'HiveDbConnectionSettings' section of the application configuration file.
+        /// Initializes a new HiveEntities object using the connection string found in the 'HiveEntities' section of the application configuration file.
         /// </summary>
-        public HiveDbConnectionSettings() : base("name=HiveDbConnectionSettings", "HiveDbConnectionSettings")
+        public HiveEntities() : base("name=HiveEntities", "HiveEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new HiveDbConnectionSettings object.
+        /// Initialize a new HiveEntities object.
         /// </summary>
-        public HiveDbConnectionSettings(string connectionString) : base(connectionString, "HiveDbConnectionSettings")
+        public HiveEntities(string connectionString) : base(connectionString, "HiveEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new HiveDbConnectionSettings object.
+        /// Initialize a new HiveEntities object.
         /// </summary>
-        public HiveDbConnectionSettings(EntityConnection connection) : base(connection, "HiveDbConnectionSettings")
+        public HiveEntities(EntityConnection connection) : base(connection, "HiveEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

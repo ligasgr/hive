@@ -1,8 +1,0 @@
-D:\dev\wrk\projects\net\hive\Hive\Model\bin\Debug\HiveDb.mdf
-D:\dev\wrk\projects\net\hive\Hive\Model\bin\Debug\HiveDb_log.LDF
-D:\dev\wrk\projects\net\hive\Hive\Model\bin\Debug\Model.pdb
-D:\dev\wrk\projects\net\hive\Hive\Model\obj\Debug\ResolveAssemblyReference.cache
-D:\dev\wrk\projects\net\hive\Hive\Model\obj\Debug\Model.pdb
-D:\dev\wrk\projects\net\hive\Hive\Model\bin\Debug\Model.dll.config
-D:\dev\wrk\projects\net\hive\Hive\Model\bin\Debug\Model.dll
-D:\dev\wrk\projects\net\hive\Hive\Model\obj\Debug\Model.dll

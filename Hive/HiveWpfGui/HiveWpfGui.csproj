@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hive.WpfGui</RootNamespace>
-    <AssemblyName>WpfGui</AssemblyName>
+    <AssemblyName>HiveWpfGui</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -146,11 +146,15 @@
   <ItemGroup>
     <ProjectReference Include="..\HiveCore\HiveCore.csproj">
       <Project>{2A789317-083D-4294-B53B-190B1D3476E5}</Project>
-      <Name>Core</Name>
+      <Name>HiveCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HiveDomain\HiveDomain.csproj">
+      <Project>{48135EAA-0A40-44DC-87C8-451BA6F1753E}</Project>
+      <Name>HiveDomain</Name>
     </ProjectReference>
     <ProjectReference Include="..\HiveModel\HiveModel.csproj">
       <Project>{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}</Project>
-      <Name>Model</Name>
+      <Name>HiveModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

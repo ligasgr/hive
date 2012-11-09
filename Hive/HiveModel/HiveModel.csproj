@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hive.Model</RootNamespace>
-    <AssemblyName>Model</AssemblyName>
+    <AssemblyName>HiveModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -68,9 +68,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HiveModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Domain\User.cs" />
-    <Compile Include="Repository\EFUserRepository.cs" />
-    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HiveDb.mdf">
@@ -87,9 +84,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HiveModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Properties\DataSources\HiveDbConnectionSettings.datasource">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

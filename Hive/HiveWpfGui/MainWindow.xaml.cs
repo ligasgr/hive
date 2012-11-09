@@ -11,8 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Hive.Core.Login;
-using Hive.Model.Domain;
+using Hive.Login;
+using Hive.Domain;
 
 namespace Hive.WpfGui
 {
@@ -33,7 +33,7 @@ namespace Hive.WpfGui
 
         private void logInButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginService auth = new DbLoginService();
+            AuthenticationService auth = new EFAuthenticationService();
             try
             {
                 auth.authenticate(new User(loginField.Text, passwordField.Text));
