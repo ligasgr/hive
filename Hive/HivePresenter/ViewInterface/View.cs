@@ -5,18 +5,12 @@ using System.Text;
 
 namespace Hive.Presenter.ViewInterface
 {
-    public enum ViewMode
-    {
-        EditMode = 0,
-        AddMode = 1
-    }
-
     public delegate void VoidEventHandler();
 
-    interface View
+    public interface View
     {
-        ViewMode Mode { get; set; }
-        void SetModeDependentSettings();
+        void Show();
+        void Close();
         event VoidEventHandler PrepareView;
     }
 }

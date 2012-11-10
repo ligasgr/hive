@@ -10,17 +10,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hive.Presenter.ViewInterface;
 
 namespace Hive.WpfGui
 {
     /// <summary>
     /// Interaction logic for StartupView.xaml
     /// </summary>
-    public partial class StartupView : Window
+    public partial class StartupView : Window, View
     {
         public StartupView()
         {
             InitializeComponent();
         }
+
+        public event VoidEventHandler PrepareView;
     }
 }

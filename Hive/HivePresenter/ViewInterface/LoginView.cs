@@ -5,10 +5,13 @@ using System.Text;
 
 namespace Hive.Presenter.ViewInterface
 {
-    interface LoginView : View
+    public interface LoginView : View
     {
         string Login { get; }
         string Password { get; }
+        View successView { get; }
+        string ErrorMessage { set; }
+        string ErrorDetails { set; }
         
         event VoidEventHandler LoginResult;
     }

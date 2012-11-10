@@ -179,11 +179,13 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\glass.ico" />
     <Resource Include="Icons\text_edit.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\user_group.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\mag_glass.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,43 +14,72 @@ using System.Windows.Shapes;
 using Hive.Login;
 using Hive.Domain;
 using Hive.ServiceLibrary;
+using Hive.Presenter.ViewInterface;
+using Hive.Presenter.Presenter;
 
 namespace Hive.WpfGui
 {
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class LoginView : Window, Hive.Presenter.ViewInterface.LoginView
     {
+        private Hive.Presenter.PresenterInterface.LoginPresenter loginPresenter;
+        private string errorMessage;
+        private string errorDetails;
+
         public LoginView()
         {
             InitializeComponent();
-        }
-
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+            loginPresenter = new LoginPresenter(this);
+            if (PrepareView != null) PrepareView();
         }
 
         private void logInButton_Click(object sender, RoutedEventArgs e)
         {
-            AuthenticationService auth = new EFAuthenticationService();
-            try
-            {
-                auth.authenticate(new User(loginField.Text, passwordField.Password));
-                StartupView wnd = new StartupView();
-                wnd.Show();
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            if (LoginResult != null) LoginResult();
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public string Login
+        {
+            get { return loginField.Text; }
+        }
+
+        public string Password
+        {
+            get { return passwordField.Password; }
+        }
+
+        public Presenter.ViewInterface.View successView
+        {
+            get { return new StartupView(); }
+        }
+
+        public event Presenter.ViewInterface.VoidEventHandler LoginResult;
+
+        public event Presenter.ViewInterface.VoidEventHandler PrepareView;
+
+        public string ErrorMessage
+        {
+            set
+            {
+                errorMessage = value;
+                statusBar.Text = errorMessage;
+            }
+        }
+
+        public string ErrorDetails
+        {
+            set
+            {
+                errorDetails = value;
+                statusBar.ToolTip = errorDetails;
+            }
         }
     }
 }
