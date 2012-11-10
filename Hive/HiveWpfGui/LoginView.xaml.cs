@@ -18,11 +18,11 @@ using Hive.ServiceLibrary;
 namespace Hive.WpfGui
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginView : Window
     {
-        public LoginWindow()
+        public LoginView()
         {
             InitializeComponent();
         }
@@ -37,13 +37,20 @@ namespace Hive.WpfGui
             AuthenticationService auth = new EFAuthenticationService();
             try
             {
-                auth.authenticate(new User(loginField.Text, passwordField.Text));
-                MessageBox.Show("Success!");
+                auth.authenticate(new User(loginField.Text, passwordField.Password));
+                StartupView wnd = new StartupView();
+                wnd.Show();
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

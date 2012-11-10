@@ -1,0 +1,26 @@
+﻿<Window x:Class="Hive.WpfGui.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hive Login" Height="115" Width="200" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:Hive.WpfGui" Loaded="Window_Loaded"
+        FocusManager.FocusedElement="{Binding ElementName=loginField}" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Target="{Binding ElementName=loginField}" Content="_Login"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="0,2,5,0" Height="23" Name="loginField" Text=""></TextBox>
+
+        <Label Grid.Row="1" Grid.Column="0" Target="{Binding ElementName=passwordField}" Content="_Password"></Label>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Margin="0,2,5,0" Height="23" Name="passwordField" Password=""></PasswordBox>
+
+        <Button Grid.Row="2" Grid.Column="0" Margin="0,2,5,0" Height="23" Content="Exit" Name="exitButton" IsCancel="True" Click="exitButton_Click"/>
+        <Button Grid.Row="2" Grid.Column="1" Margin="0,2,5,0" Height="23" Content="Log in" Name="logInButton" IsDefault="True" Click="logInButton_Click" />        
+    </Grid>
+</Window>
