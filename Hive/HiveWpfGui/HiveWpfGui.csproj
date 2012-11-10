@@ -76,9 +76,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdviceDetailsView.xaml.cs">
+      <DependentUpon>AdviceDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvicePrintPreviewView.xaml.cs">
+      <DependentUpon>AdvicePrintPreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdviceSearchView.xaml.cs">
+      <DependentUpon>AdviceSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientDetailsView.xaml.cs">
+      <DependentUpon>PatientDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientSearchView.xaml.cs">
+      <DependentUpon>PatientSearchView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartupView.xaml.cs">
       <DependentUpon>StartupView.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdviceDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvicePrintPreviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdviceSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +118,14 @@
       <DependentUpon>LoginView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PatientDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StartupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

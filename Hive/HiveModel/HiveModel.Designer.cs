@@ -16,6 +16,12 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("HiveDbModel", "FK_Advices_AdviceTemplates", "AdviceTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Hive.Model.AdviceTemplate), "Advice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Hive.Model.Advice), true)]
+[assembly: EdmRelationshipAttribute("HiveDbModel", "FK_Advices_Patients", "Patient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Hive.Model.Patient), "Advice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Hive.Model.Advice), true)]
+
+#endregion
 
 namespace Hive.Model
 {
@@ -80,6 +86,54 @@ namespace Hive.Model
             }
         }
         private ObjectSet<User> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Advice> Advices
+        {
+            get
+            {
+                if ((_Advices == null))
+                {
+                    _Advices = base.CreateObjectSet<Advice>("Advices");
+                }
+                return _Advices;
+            }
+        }
+        private ObjectSet<Advice> _Advices;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<AdviceTemplate> AdviceTemplates
+        {
+            get
+            {
+                if ((_AdviceTemplates == null))
+                {
+                    _AdviceTemplates = base.CreateObjectSet<AdviceTemplate>("AdviceTemplates");
+                }
+                return _AdviceTemplates;
+            }
+        }
+        private ObjectSet<AdviceTemplate> _AdviceTemplates;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Patient> Patients
+        {
+            get
+            {
+                if ((_Patients == null))
+                {
+                    _Patients = base.CreateObjectSet<Patient>("Patients");
+                }
+                return _Patients;
+            }
+        }
+        private ObjectSet<Patient> _Patients;
 
         #endregion
         #region AddTo Methods
@@ -91,6 +145,30 @@ namespace Hive.Model
         {
             base.AddObject("Users", user);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Advices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAdvices(Advice advice)
+        {
+            base.AddObject("Advices", advice);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the AdviceTemplates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAdviceTemplates(AdviceTemplate adviceTemplate)
+        {
+            base.AddObject("AdviceTemplates", adviceTemplate);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Patients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPatients(Patient patient)
+        {
+            base.AddObject("Patients", patient);
+        }
 
         #endregion
     }
@@ -99,6 +177,842 @@ namespace Hive.Model
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiveDbModel", Name="Advice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Advice : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Advice object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="visitDate">Initial value of the VisitDate property.</param>
+        /// <param name="patientId">Initial value of the PatientId property.</param>
+        public static Advice CreateAdvice(global::System.Int64 id, global::System.DateTime visitDate, global::System.Int64 patientId)
+        {
+            Advice advice = new Advice();
+            advice.Id = id;
+            advice.VisitDate = visitDate;
+            advice.PatientId = patientId;
+            return advice;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime VisitDate
+        {
+            get
+            {
+                return _VisitDate;
+            }
+            set
+            {
+                OnVisitDateChanging(value);
+                ReportPropertyChanging("VisitDate");
+                _VisitDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("VisitDate");
+                OnVisitDateChanged();
+            }
+        }
+        private global::System.DateTime _VisitDate;
+        partial void OnVisitDateChanging(global::System.DateTime value);
+        partial void OnVisitDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Symptoms
+        {
+            get
+            {
+                return _Symptoms;
+            }
+            set
+            {
+                OnSymptomsChanging(value);
+                ReportPropertyChanging("Symptoms");
+                _Symptoms = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Symptoms");
+                OnSymptomsChanged();
+            }
+        }
+        private global::System.String _Symptoms;
+        partial void OnSymptomsChanging(global::System.String value);
+        partial void OnSymptomsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 PatientId
+        {
+            get
+            {
+                return _PatientId;
+            }
+            set
+            {
+                OnPatientIdChanging(value);
+                ReportPropertyChanging("PatientId");
+                _PatientId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PatientId");
+                OnPatientIdChanged();
+            }
+        }
+        private global::System.Int64 _PatientId;
+        partial void OnPatientIdChanging(global::System.Int64 value);
+        partial void OnPatientIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TemplateId
+        {
+            get
+            {
+                return _TemplateId;
+            }
+            set
+            {
+                OnTemplateIdChanging(value);
+                ReportPropertyChanging("TemplateId");
+                _TemplateId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TemplateId");
+                OnTemplateIdChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TemplateId;
+        partial void OnTemplateIdChanging(Nullable<global::System.Int64> value);
+        partial void OnTemplateIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiveDbModel", "FK_Advices_AdviceTemplates", "AdviceTemplate")]
+        public AdviceTemplate AdviceTemplate
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdviceTemplate>("HiveDbModel.FK_Advices_AdviceTemplates", "AdviceTemplate").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdviceTemplate>("HiveDbModel.FK_Advices_AdviceTemplates", "AdviceTemplate").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AdviceTemplate> AdviceTemplateReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdviceTemplate>("HiveDbModel.FK_Advices_AdviceTemplates", "AdviceTemplate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdviceTemplate>("HiveDbModel.FK_Advices_AdviceTemplates", "AdviceTemplate", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiveDbModel", "FK_Advices_Patients", "Patient")]
+        public Patient Patient
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("HiveDbModel.FK_Advices_Patients", "Patient").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("HiveDbModel.FK_Advices_Patients", "Patient").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Patient> PatientReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Patient>("HiveDbModel.FK_Advices_Patients", "Patient");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Patient>("HiveDbModel.FK_Advices_Patients", "Patient", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiveDbModel", Name="AdviceTemplate")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class AdviceTemplate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new AdviceTemplate object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="template">Initial value of the Template property.</param>
+        public static AdviceTemplate CreateAdviceTemplate(global::System.Int64 id, global::System.String name, global::System.String template)
+        {
+            AdviceTemplate adviceTemplate = new AdviceTemplate();
+            adviceTemplate.Id = id;
+            adviceTemplate.Name = name;
+            adviceTemplate.Template = template;
+            return adviceTemplate;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Template
+        {
+            get
+            {
+                return _Template;
+            }
+            set
+            {
+                OnTemplateChanging(value);
+                ReportPropertyChanging("Template");
+                _Template = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Template");
+                OnTemplateChanged();
+            }
+        }
+        private global::System.String _Template;
+        partial void OnTemplateChanging(global::System.String value);
+        partial void OnTemplateChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiveDbModel", "FK_Advices_AdviceTemplates", "Advice")]
+        public EntityCollection<Advice> Advices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Advice>("HiveDbModel.FK_Advices_AdviceTemplates", "Advice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Advice>("HiveDbModel.FK_Advices_AdviceTemplates", "Advice", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HiveDbModel", Name="Patient")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Patient : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Patient object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="firstName">Initial value of the FirstName property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="pesel">Initial value of the Pesel property.</param>
+        public static Patient CreatePatient(global::System.Int64 id, global::System.String firstName, global::System.String lastName, global::System.String pesel)
+        {
+            Patient patient = new Patient();
+            patient.Id = id;
+            patient.FirstName = firstName;
+            patient.LastName = lastName;
+            patient.Pesel = pesel;
+            return patient;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Pesel
+        {
+            get
+            {
+                return _Pesel;
+            }
+            set
+            {
+                OnPeselChanging(value);
+                ReportPropertyChanging("Pesel");
+                _Pesel = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Pesel");
+                OnPeselChanged();
+            }
+        }
+        private global::System.String _Pesel;
+        partial void OnPeselChanging(global::System.String value);
+        partial void OnPeselChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> BirthDate
+        {
+            get
+            {
+                return _BirthDate;
+            }
+            set
+            {
+                OnBirthDateChanging(value);
+                ReportPropertyChanging("BirthDate");
+                _BirthDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BirthDate");
+                OnBirthDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _BirthDate;
+        partial void OnBirthDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnBirthDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BirthPlace
+        {
+            get
+            {
+                return _BirthPlace;
+            }
+            set
+            {
+                OnBirthPlaceChanging(value);
+                ReportPropertyChanging("BirthPlace");
+                _BirthPlace = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BirthPlace");
+                OnBirthPlaceChanged();
+            }
+        }
+        private global::System.String _BirthPlace;
+        partial void OnBirthPlaceChanging(global::System.String value);
+        partial void OnBirthPlaceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String IdDocument
+        {
+            get
+            {
+                return _IdDocument;
+            }
+            set
+            {
+                OnIdDocumentChanging(value);
+                ReportPropertyChanging("IdDocument");
+                _IdDocument = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("IdDocument");
+                OnIdDocumentChanged();
+            }
+        }
+        private global::System.String _IdDocument;
+        partial void OnIdDocumentChanging(global::System.String value);
+        partial void OnIdDocumentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Street
+        {
+            get
+            {
+                return _Street;
+            }
+            set
+            {
+                OnStreetChanging(value);
+                ReportPropertyChanging("Street");
+                _Street = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Street");
+                OnStreetChanged();
+            }
+        }
+        private global::System.String _Street;
+        partial void OnStreetChanging(global::System.String value);
+        partial void OnStreetChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String HouseNo
+        {
+            get
+            {
+                return _HouseNo;
+            }
+            set
+            {
+                OnHouseNoChanging(value);
+                ReportPropertyChanging("HouseNo");
+                _HouseNo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("HouseNo");
+                OnHouseNoChanged();
+            }
+        }
+        private global::System.String _HouseNo;
+        partial void OnHouseNoChanging(global::System.String value);
+        partial void OnHouseNoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FlatNo
+        {
+            get
+            {
+                return _FlatNo;
+            }
+            set
+            {
+                OnFlatNoChanging(value);
+                ReportPropertyChanging("FlatNo");
+                _FlatNo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FlatNo");
+                OnFlatNoChanged();
+            }
+        }
+        private global::System.String _FlatNo;
+        partial void OnFlatNoChanging(global::System.String value);
+        partial void OnFlatNoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostalCode
+        {
+            get
+            {
+                return _PostalCode;
+            }
+            set
+            {
+                OnPostalCodeChanging(value);
+                ReportPropertyChanging("PostalCode");
+                _PostalCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostalCode");
+                OnPostalCodeChanged();
+            }
+        }
+        private global::System.String _PostalCode;
+        partial void OnPostalCodeChanging(global::System.String value);
+        partial void OnPostalCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String City
+        {
+            get
+            {
+                return _City;
+            }
+            set
+            {
+                OnCityChanging(value);
+                ReportPropertyChanging("City");
+                _City = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("City");
+                OnCityChanged();
+            }
+        }
+        private global::System.String _City;
+        partial void OnCityChanging(global::System.String value);
+        partial void OnCityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Phone
+        {
+            get
+            {
+                return _Phone;
+            }
+            set
+            {
+                OnPhoneChanging(value);
+                ReportPropertyChanging("Phone");
+                _Phone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Phone");
+                OnPhoneChanged();
+            }
+        }
+        private global::System.String _Phone;
+        partial void OnPhoneChanging(global::System.String value);
+        partial void OnPhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Mobile
+        {
+            get
+            {
+                return _Mobile;
+            }
+            set
+            {
+                OnMobileChanging(value);
+                ReportPropertyChanging("Mobile");
+                _Mobile = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Mobile");
+                OnMobileChanged();
+            }
+        }
+        private global::System.String _Mobile;
+        partial void OnMobileChanging(global::System.String value);
+        partial void OnMobileChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] LastVisit
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_LastVisit);
+            }
+            set
+            {
+                OnLastVisitChanging(value);
+                ReportPropertyChanging("LastVisit");
+                _LastVisit = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LastVisit");
+                OnLastVisitChanged();
+            }
+        }
+        private global::System.Byte[] _LastVisit;
+        partial void OnLastVisitChanging(global::System.Byte[] value);
+        partial void OnLastVisitChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HiveDbModel", "FK_Advices_Patients", "Advice")]
+        public EntityCollection<Advice> Advices
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Advice>("HiveDbModel.FK_Advices_Patients", "Advice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Advice>("HiveDbModel.FK_Advices_Patients", "Advice", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.

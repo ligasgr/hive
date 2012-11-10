@@ -6,8 +6,59 @@
     <edmx:StorageModels>
     <Schema Namespace="HiveDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="HiveDbModelStoreContainer">
+          <EntitySet Name="Advices" EntityType="HiveDbModel.Store.Advices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdviceTemplates" EntityType="HiveDbModel.Store.AdviceTemplates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Patients" EntityType="HiveDbModel.Store.Patients" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="HiveDbModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Advices_AdviceTemplates" Association="HiveDbModel.Store.FK_Advices_AdviceTemplates">
+            <End Role="AdviceTemplates" EntitySet="AdviceTemplates" />
+            <End Role="Advices" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advices_Patients" Association="HiveDbModel.Store.FK_Advices_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Advices" EntitySet="Advices" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Advices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="VisitDate" Type="date" Nullable="false" />
+          <Property Name="Symptoms" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PatientId" Type="bigint" Nullable="false" />
+          <Property Name="TemplateId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="AdviceTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Template" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Pesel" Type="nvarchar" Nullable="false" MaxLength="11" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="BirthPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdDocument" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" />
+          <Property Name="HouseNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FlatNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastVisit" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Login" />
@@ -15,12 +66,47 @@
           <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Advices_AdviceTemplates">
+          <End Role="AdviceTemplates" Type="HiveDbModel.Store.AdviceTemplates" Multiplicity="0..1" />
+          <End Role="Advices" Type="HiveDbModel.Store.Advices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdviceTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advices">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advices_Patients">
+          <End Role="Patients" Type="HiveDbModel.Store.Patients" Multiplicity="1" />
+          <End Role="Advices" Type="HiveDbModel.Store.Advices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advices">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HiveDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="HiveEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="HiveDbModel.User" />
+          <EntitySet Name="Advices" EntityType="HiveDbModel.Advice" />
+          <EntitySet Name="AdviceTemplates" EntityType="HiveDbModel.AdviceTemplate" />
+          <EntitySet Name="Patients" EntityType="HiveDbModel.Patient" />
+          <AssociationSet Name="FK_Advices_AdviceTemplates" Association="HiveDbModel.FK_Advices_AdviceTemplates">
+            <End Role="AdviceTemplate" EntitySet="AdviceTemplates" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Advices_Patients" Association="HiveDbModel.FK_Advices_Patients">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Advice" EntitySet="Advices" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -29,6 +115,74 @@
           <Property Type="String" Name="Login" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="Advice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="VisitDate" Nullable="false" />
+          <Property Type="String" Name="Symptoms" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="PatientId" Nullable="false" />
+          <Property Type="Int64" Name="TemplateId" />
+          <NavigationProperty Name="AdviceTemplate" Relationship="HiveDbModel.FK_Advices_AdviceTemplates" FromRole="Advice" ToRole="AdviceTemplate" />
+          <NavigationProperty Name="Patient" Relationship="HiveDbModel.FK_Advices_Patients" FromRole="Advice" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="AdviceTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Template" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Advices" Relationship="HiveDbModel.FK_Advices_AdviceTemplates" FromRole="AdviceTemplate" ToRole="Advice" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Pesel" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="BirthDate" />
+          <Property Type="String" Name="BirthPlace" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdDocument" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="HouseNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FlatNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobile" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="LastVisit" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Advices" Relationship="HiveDbModel.FK_Advices_Patients" FromRole="Patient" ToRole="Advice" />
+        </EntityType>
+        <Association Name="FK_Advices_AdviceTemplates">
+          <End Type="HiveDbModel.AdviceTemplate" Role="AdviceTemplate" Multiplicity="0..1" />
+          <End Type="HiveDbModel.Advice" Role="Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdviceTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Advices_Patients">
+          <End Type="HiveDbModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="HiveDbModel.Advice" Role="Advice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Advice">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -40,6 +194,49 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advices">
+            <EntityTypeMapping TypeName="HiveDbModel.Advice">
+              <MappingFragment StoreEntitySet="Advices">
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Symptoms" ColumnName="Symptoms" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdviceTemplates">
+            <EntityTypeMapping TypeName="HiveDbModel.AdviceTemplate">
+              <MappingFragment StoreEntitySet="AdviceTemplates">
+                <ScalarProperty Name="Template" ColumnName="Template" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HiveDbModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="LastVisit" ColumnName="LastVisit" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="FlatNo" ColumnName="FlatNo" />
+                <ScalarProperty Name="HouseNo" ColumnName="HouseNo" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -65,6 +262,17 @@
     <Diagrams>
       <Diagram Name="HiveModel">
         <EntityTypeShape EntityType="HiveDbModel.User" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="HiveDbModel.Advice" Width="1.5" PointX="5.625" PointY="1" Height="2.5571907552083326" />
+        <EntityTypeShape EntityType="HiveDbModel.AdviceTemplate" Width="1.5" PointX="3.375" PointY="1.375" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="HiveDbModel.Patient" Width="1.5" PointX="1" PointY="2.75" Height="4.2879036458333317" />
+        <AssociationConnector Association="HiveDbModel.FK_Advices_AdviceTemplates" >
+          <ConnectorPoint PointX="4.875" PointY="2.2689925130208333" />
+          <ConnectorPoint PointX="5.625" PointY="2.2689925130208333" />
+        </AssociationConnector>
+        <AssociationConnector Association="HiveDbModel.FK_Advices_Patients" >
+          <ConnectorPoint PointX="2.5" PointY="3.3913378906249996" />
+          <ConnectorPoint PointX="5.625" PointY="3.3913378906249996" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
