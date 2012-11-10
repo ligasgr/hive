@@ -21,6 +21,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveDomain", "HiveDomain\HiveDomain.csproj", "{48135EAA-0A40-44DC-87C8-451BA6F1753E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HivePresenter", "HivePresenter\HivePresenter.csproj", "{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DB4F1E3A-D82C-4F1E-8C32-5C4C39016E1B} = {DB4F1E3A-D82C-4F1E-8C32-5C4C39016E1B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution

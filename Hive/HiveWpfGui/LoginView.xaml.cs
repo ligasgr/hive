@@ -16,6 +16,7 @@ using Hive.Domain;
 using Hive.ServiceLibrary;
 using Hive.Presenter.ViewInterface;
 using Hive.Presenter.Presenter;
+using Hive.Presenter.PresenterInterface;
 
 namespace Hive.WpfGui
 {
@@ -24,14 +25,21 @@ namespace Hive.WpfGui
     /// </summary>
     public partial class LoginView : Window, Hive.Presenter.ViewInterface.LoginView
     {
-        private Hive.Presenter.PresenterInterface.LoginPresenter loginPresenter;
+        private LoginPresenter loginPresenter;
         private string errorMessage;
         private string errorDetails;
 
         public LoginView()
         {
             InitializeComponent();
-            loginPresenter = new LoginPresenter(this);
+            if (Properties.Settings.Default.UseLocalConnection)
+            {
+                loginPresenter = new DefaultLoginPresenter(this);
+            }
+            else
+            {
+                loginPresenter = new WsLoginPresenter(this, Properties.Settings.Default.WebServiceUrl);
+            }
             if (PrepareView != null) PrepareView();
         }
 

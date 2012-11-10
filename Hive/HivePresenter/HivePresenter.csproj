@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresenterInterface\LoginPresenter.cs" />
-    <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="Presenter\DefaultLoginPresenter.cs" />
+    <Compile Include="Presenter\WsLoginPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewInterface\EditableView.cs" />
     <Compile Include="ViewInterface\LoginView.cs" />
     <Compile Include="ViewInterface\View.cs" />
@@ -56,6 +64,38 @@
       <Project>{48135EAA-0A40-44DC-87C8-451BA6F1753E}</Project>
       <Name>HiveDomain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\Hive.Domain.User.datasource" />
+    <None Include="Service References\ServiceClient\Hive.Domain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceClient\service.wsdl" />
+    <None Include="Service References\ServiceClient\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceClient\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceClient\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceClient\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceClient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

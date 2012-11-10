@@ -5,14 +5,15 @@ using System.Text;
 using Hive.Presenter.ViewInterface;
 using Hive.Login;
 using Hive.Domain;
+using Hive.Presenter.PresenterInterface;
 
 namespace Hive.Presenter.Presenter
 {
-    public class LoginPresenter : Hive.Presenter.PresenterInterface.LoginPresenter
+    public class DefaultLoginPresenter : LoginPresenter
     {
         private LoginView view;
 
-        public LoginPresenter(LoginView view)
+        public DefaultLoginPresenter(LoginView view)
         {
             this.view = view;
             this.view.PrepareView += view_PrepareView;
