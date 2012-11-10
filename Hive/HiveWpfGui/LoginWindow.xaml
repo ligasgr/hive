@@ -1,4 +1,4 @@
-﻿<Window x:Class="Hive.WpfGui.MainWindow"
+﻿<Window x:Class="Hive.WpfGui.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Hive" Height="350" Width="525" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:my="clr-namespace:Hive.WpfGui" Loaded="Window_Loaded">
