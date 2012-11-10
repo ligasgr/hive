@@ -3,6 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="StartupWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <TextBlock>Yeah! <Bold>I'm here!</Bold></TextBlock>
     </Grid>
 </Window>
