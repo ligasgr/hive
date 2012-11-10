@@ -34,7 +34,7 @@ namespace Hive.WpfGui
             InitializeComponent();
             if (Properties.Settings.Default.UseLocalConnection)
             {
-                loginPresenter = new DefaultLoginPresenter(this);
+                loginPresenter = new LocalLoginPresenter(this);
             }
             else
             {

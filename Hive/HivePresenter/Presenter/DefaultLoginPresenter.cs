@@ -9,8 +9,9 @@ using Hive.Presenter.PresenterInterface;
 
 namespace Hive.Presenter.Presenter
 {
-    public class DefaultLoginPresenter : LoginPresenter
+    public abstract class DefaultLoginPresenter : LoginPresenter
     {
+        
         private LoginView view;
 
         public DefaultLoginPresenter(LoginView view)
@@ -29,7 +30,7 @@ namespace Hive.Presenter.Presenter
             try
             {
                 User user = new User(this.view.Login, this.view.Password);
-                new EFAuthenticationService().authenticate(user);
+                getAuthenticationService().authenticate(user);
                 this.view.successView.Show();
                 this.view.Close();
             }
@@ -39,5 +40,7 @@ namespace Hive.Presenter.Presenter
                 this.view.ErrorDetails = ex.Message + " \n " + ex.StackTrace;
             }
         }
+
+        protected abstract AuthenticationService getAuthenticationService();
     }
 }
