@@ -22,5 +22,29 @@ namespace Hive.WpfGui.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UseLocalConnection {
+            get {
+                return ((bool)(this["UseLocalConnection"]));
+            }
+            set {
+                this["UseLocalConnection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8732/HiveServiceLibrary/HiveService/")]
+        public string WebServiceUrl {
+            get {
+                return ((string)(this["WebServiceUrl"]));
+            }
+            set {
+                this["WebServiceUrl"] = value;
+            }
+        }
     }
 }

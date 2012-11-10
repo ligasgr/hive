@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveServiceApp", "HiveServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiveDomain", "HiveDomain\HiveDomain.csproj", "{48135EAA-0A40-44DC-87C8-451BA6F1753E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HivePresenter", "HivePresenter\HivePresenter.csproj", "{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Hive.vsmdi
@@ -93,6 +95,16 @@ Global
 		{48135EAA-0A40-44DC-87C8-451BA6F1753E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{48135EAA-0A40-44DC-87C8-451BA6F1753E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{48135EAA-0A40-44DC-87C8-451BA6F1753E}.Release|x86.ActiveCfg = Release|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

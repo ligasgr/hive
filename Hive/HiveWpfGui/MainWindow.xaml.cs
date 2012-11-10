@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Hive.Login;
 using Hive.Domain;
+using Hive.ServiceLibrary;
 
 namespace Hive.WpfGui
 {

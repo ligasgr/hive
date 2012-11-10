@@ -84,6 +84,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HiveModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Properties\DataSources\HiveEntities.datasource" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

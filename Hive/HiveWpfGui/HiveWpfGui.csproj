@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Startup.xaml.cs">
+      <DependentUpon>Startup.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +88,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Startup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,6 +162,14 @@
     <ProjectReference Include="..\HiveModel\HiveModel.csproj">
       <Project>{0DDD778B-6D30-4C06-9595-26DC78DF7BFB}</Project>
       <Name>HiveModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HivePresenter\HivePresenter.csproj">
+      <Project>{DDC2D9EA-1E70-47A4-A6A8-81ACB4C2B5DB}</Project>
+      <Name>HivePresenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HiveServiceLibrary\HiveServiceLibrary.csproj">
+      <Project>{DB4F1E3A-D82C-4F1E-8C32-5C4C39016E1B}</Project>
+      <Name>HiveServiceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
