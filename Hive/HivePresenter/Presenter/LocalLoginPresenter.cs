@@ -17,7 +17,7 @@ namespace Hive.Presenter.Presenter
 
         protected override AuthenticationService getAuthenticationService()
         {
-            return new EFAuthenticationService();
+            return new AuthenticationServiceImpl();
         }
     }
 }

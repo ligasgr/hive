@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login\EFAuthenticationService.cs" />
+    <Compile Include="Login\AuthenticationServiceImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\EFUserRepository.cs" />
+    <Compile Include="Repository\UserRepositoryEf.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HiveDomain\HiveDomain.csproj">

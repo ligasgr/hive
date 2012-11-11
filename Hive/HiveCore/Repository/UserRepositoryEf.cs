@@ -6,7 +6,7 @@ using Hive.Model;
 
 namespace Hive.Repository
 {
-    public class EFUserRepository : UserRepository
+    public class UserRepositoryEf : UserRepository
     {
 
         private HiveEntities db = new HiveEntities();

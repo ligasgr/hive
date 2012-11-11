@@ -14,7 +14,7 @@ namespace Hive.ServiceLibrary
     {
         public User authenticate(User user)
         {
-            return new EFAuthenticationService().authenticate(user);
+            return new AuthenticationServiceImpl().authenticate(user);
         }
     }
 }

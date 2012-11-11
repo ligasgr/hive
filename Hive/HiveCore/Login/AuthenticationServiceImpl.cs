@@ -7,9 +7,9 @@ using Hive.Repository;
 
 namespace Hive.Login
 {
-    public class EFAuthenticationService : AuthenticationService
+    public class AuthenticationServiceImpl : AuthenticationService
     {
-        private UserRepository repo = new EFUserRepository();
+        private UserRepository repo = new UserRepositoryEf();
 
         public User authenticate(User user)
         {
