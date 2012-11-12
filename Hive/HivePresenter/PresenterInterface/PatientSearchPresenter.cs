@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Hive.Presenter.PresenterInterface
 {
-    public interface LoginPresenter
+    public interface PatientSearchPresenter
     {
-        void view_LoginResult();
+        void view_PatientSearchResult();
     }
 }

@@ -10,11 +10,19 @@ using Hive.Login;
 
 namespace Hive.ServiceLibrary
 {
+    [ServiceBehavior(Namespace=ServiceConstants.Namespace)]
     public class HiveCoreBasedService : HiveService, AuthenticationService
     {
-        public User authenticate(User user)
+        public User Authenticate(User user)
         {
-            return new AuthenticationServiceImpl().authenticate(user);
+            return new AuthenticationServiceImpl().Authenticate(user);
+        }
+
+        public Contract.FindPatientsResponse FindAllPatiens()
+        {
+            Contract.FindPatientsResponse response = new Contract.FindPatientsResponse();
+            response.Results = new PatientRepositoryEf().FindAll();
+            return response;
         }
     }
 }

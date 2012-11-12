@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresenterInterface\LoginPresenter.cs" />
-    <Compile Include="Presenter\DefaultLoginPresenter.cs" />
-    <Compile Include="Presenter\LocalLoginPresenter.cs" />
-    <Compile Include="Presenter\WsLoginPresenter.cs" />
+    <Compile Include="PresenterInterface\PatientSearchPresenter.cs" />
+    <Compile Include="Presenter\AbstractLoginPresenter.cs" />
+    <Compile Include="Presenter\LoginPresenterLocal.cs" />
+    <Compile Include="Presenter\PatientSearchPresenterWs.cs" />
+    <Compile Include="Presenter\LoginPresenterWs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceClient\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -54,6 +56,7 @@
     </Compile>
     <Compile Include="ViewInterface\EditableView.cs" />
     <Compile Include="ViewInterface\LoginView.cs" />
+    <Compile Include="ViewInterface\PatientSearchView.cs" />
     <Compile Include="ViewInterface\View.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,12 +74,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\Hive.Domain.Patient.datasource" />
     <None Include="Properties\DataSources\Hive.Domain.User.datasource" />
     <None Include="Service References\ServiceClient\Hive.Domain.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceClient\service.wsdl" />
-    <None Include="Service References\ServiceClient\service.xsd">
+    <None Include="Service References\ServiceClient\hive.wsdl" />
+    <None Include="Service References\ServiceClient\hive.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceClient\service1.xsd">

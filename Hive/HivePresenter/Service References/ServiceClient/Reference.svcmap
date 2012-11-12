@@ -23,8 +23,8 @@
     <MetadataSource Address="http://localhost:8732/HiveServiceLibrary/HiveService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="3b3d9fb1-8d48-4720-97a9-a526057c5223" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ea16bd88-d709-4282-a91d-6a614b47d6f0" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
+    <MetadataFile FileName="hive.wsdl" MetadataType="Wsdl" ID="4ed3c990-efc2-47f0-86f8-bd3b51139756" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
+    <MetadataFile FileName="hive.xsd" MetadataType="Schema" ID="8762956d-1d2d-4f90-b87c-e761affd6fbe" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e689538e-ed9d-4859-9660-17f7f7668dd7" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
     <MetadataFile FileName="Hive.Domain.xsd" MetadataType="Schema" ID="01e3c1f9-c421-4840-b2c5-caf3f55d5741" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
   </Metadata>

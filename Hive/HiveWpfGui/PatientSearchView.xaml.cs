@@ -10,17 +10,62 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Hive.Presenter.ServiceClient;
+using Hive.Domain;
+using Hive.Presenter.PresenterInterface;
+using Hive.Presenter.Presenter;
 
 namespace Hive.WpfGui
 {
     /// <summary>
     /// Interaction logic for PatientSearchView.xaml
     /// </summary>
-    public partial class PatientSearchView : Window
+    public partial class PatientSearchView : Window, Hive.Presenter.ViewInterface.PatientSearchView
     {
+
+        private IList<Patient> patientSearchList;
+        private PatientSearchPresenter presenter;
+
         public PatientSearchView()
         {
             InitializeComponent();
+            presenter = new PatientSearchPresenterWs(this, Properties.Settings.Default.WebServiceUrl);
+            if (PrepareView != null) PrepareView();
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PatientSearchResult != null) PatientSearchResult();   
+        }
+
+        public string ErrorMessage
+        {
+            set { throw new NotImplementedException(); }
+        }
+
+        public string ErrorDetails
+        {
+            set { throw new NotImplementedException(); }
+        }
+
+        public event Presenter.ViewInterface.VoidEventHandler PatientSearchResult;
+
+
+        public event Presenter.ViewInterface.VoidEventHandler PrepareView;
+
+
+        public IList<Patient> PatientSearchResultsList
+        {
+            get
+            {
+                return patientSearchList;
+            }
+            set
+            {
+                this.patientSearchList = value;
+                CollectionViewSource patientsDataView = (CollectionViewSource)FindResource("patientsDataView");
+                patientsDataView.Source = patientSearchList;
+            }
         }
     }
 }

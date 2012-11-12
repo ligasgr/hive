@@ -9,9 +9,9 @@ using Hive.Presenter.PresenterInterface;
 
 namespace Hive.Presenter.Presenter
 {
-    public class LocalLoginPresenter: DefaultLoginPresenter
+    public class LoginPresenterLocal: AbstractLoginPresenter
     {
-        public LocalLoginPresenter(LoginView view) : base(view)
+        public LoginPresenterLocal(LoginView view) : base(view)
         {
         }
 

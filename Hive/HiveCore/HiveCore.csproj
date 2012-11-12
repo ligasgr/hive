@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Login\AuthenticationServiceImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\PatientRepositoryEf.cs" />
     <Compile Include="Repository\UserRepositoryEf.cs" />
   </ItemGroup>
   <ItemGroup>

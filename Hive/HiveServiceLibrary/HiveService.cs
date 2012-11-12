@@ -5,13 +5,22 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Hive.Domain;
+using Hive.ServiceLibrary.Contract;
 
 namespace Hive.ServiceLibrary
 {
-    [ServiceContract]
+    internal sealed class ServiceConstants
+    {
+        internal const string Namespace = "http://ligasgr.net/services/hive";
+    } 
+
+    [ServiceContract(Namespace=ServiceConstants.Namespace)]
     public interface HiveService
     {
         [OperationContract]
-        User authenticate(User user);
+        User Authenticate(User user);
+
+        [OperationContract]
+        FindPatientsResponse FindAllPatiens();
     }
 }

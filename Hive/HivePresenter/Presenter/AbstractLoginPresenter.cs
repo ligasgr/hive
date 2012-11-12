@@ -9,12 +9,12 @@ using Hive.Presenter.PresenterInterface;
 
 namespace Hive.Presenter.Presenter
 {
-    public abstract class DefaultLoginPresenter : LoginPresenter
+    public abstract class AbstractLoginPresenter : LoginPresenter
     {
         
         private LoginView view;
 
-        public DefaultLoginPresenter(LoginView view)
+        public AbstractLoginPresenter(LoginView view)
         {
             this.view = view;
             this.view.PrepareView += view_PrepareView;
@@ -25,12 +25,12 @@ namespace Hive.Presenter.Presenter
         {
         }
 
-        private void view_LoginResult()
+        public void view_LoginResult()
         {
             try
             {
                 User user = new User(this.view.Login, this.view.Password);
-                getAuthenticationService().authenticate(user);
+                getAuthenticationService().Authenticate(user);
                 this.view.successView.Show();
                 this.view.Close();
             }

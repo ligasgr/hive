@@ -1,8 +1,33 @@
 ﻿<Window x:Class="Hive.WpfGui.PatientSearchView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PatientSearchView" Height="300" Width="300">
+        Title="Hive Patients" Height="300" Width="300">
+    <Window.Resources>
+        <CollectionViewSource Source="{Binding Path=PatientSearchResultsList}" x:Key="patientsDataView"/>
+    </Window.Resources>
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Name="searchButton" HorizontalAlignment="Right" Click="searchButton_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons\mag_glass.ico"/>
+                    <TextBlock VerticalAlignment="Center" Text="Search"></TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <DataGrid Name="PatientList" ItemsSource="{Binding Source={StaticResource patientsDataView}}" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="PESEL" Binding="{Binding Pesel}"/>
+                <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

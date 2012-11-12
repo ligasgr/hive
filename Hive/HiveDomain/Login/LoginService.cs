@@ -8,6 +8,6 @@ namespace Hive.Login
 {
     public interface AuthenticationService
     {
-        User authenticate(User user);
+        User Authenticate(User user);
     }
 }

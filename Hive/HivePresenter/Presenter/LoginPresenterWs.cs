@@ -9,11 +9,11 @@ using Hive.Presenter.PresenterInterface;
 
 namespace Hive.Presenter.Presenter
 {
-    public class WsLoginPresenter : DefaultLoginPresenter
+    public class LoginPresenterWs : AbstractLoginPresenter
     {
         private string wsAddress;
 
-        public WsLoginPresenter(LoginView view, string wsAddress): base (view)
+        public LoginPresenterWs(LoginView view, string wsAddress): base (view)
         {
             this.wsAddress = wsAddress;
         }
@@ -33,9 +33,12 @@ namespace Hive.Presenter.Presenter
             this.wsAddress = wsAddress;
         }
 
-        public User authenticate(User user)
+        public User Authenticate(User user)
         {
-            return new ServiceClient.HiveServiceClient("WSHttpBinding_HiveService", wsAddress).authenticate(user);
+            using (ServiceClient.HiveServiceClient service = new ServiceClient.HiveServiceClient("WSHttpBinding_HiveService", wsAddress))
+            {
+                return service.Authenticate(user);
+            }
         }
     }
 }

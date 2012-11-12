@@ -25,5 +25,17 @@ namespace Hive.WpfGui
         }
 
         public event VoidEventHandler PrepareView;
+
+        private void patientsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new PatientSearchView();
+            view.Show();
+        }
+
+        private void advicesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var view = new AdviceSearchView();
+            view.Show();
+        }
     }
 }

@@ -34,11 +34,11 @@ namespace Hive.WpfGui
             InitializeComponent();
             if (Properties.Settings.Default.UseLocalConnection)
             {
-                loginPresenter = new LocalLoginPresenter(this);
+                loginPresenter = new LoginPresenterLocal(this);
             }
             else
             {
-                loginPresenter = new WsLoginPresenter(this, Properties.Settings.Default.WebServiceUrl);
+                loginPresenter = new LoginPresenterWs(this, Properties.Settings.Default.WebServiceUrl);
             }
             if (PrepareView != null) PrepareView();
         }

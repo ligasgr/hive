@@ -8,20 +8,21 @@ namespace Hive.Repository
 {
     public class UserRepositoryEf : UserRepository
     {
-
-        private HiveEntities db = new HiveEntities();
-
         public Hive.Domain.User Find(string login)
         {
-            try
+            using (HiveEntities db = new HiveEntities())
             {
-                var result = from u in db.Users where u.Login == login select u;
-                User record = result.Single();
-                return new Hive.Domain.User(record.Login, record.Password);
-            }
-            catch (Exception ex)
-            {
-                throw new UserNotFoundException(login, ex);
+                try
+                {
+                    var result = from u in db.Users where u.Login == login select u;
+
+                    User record = result.Single();
+                    return new Hive.Domain.User(record.Login, record.Password);
+                }
+                catch (Exception ex)
+                {
+                    throw new UserNotFoundException(login, ex);
+                }
             }
         }
     }

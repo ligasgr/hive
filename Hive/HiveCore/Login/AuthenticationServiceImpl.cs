@@ -11,7 +11,7 @@ namespace Hive.Login
     {
         private UserRepository repo = new UserRepositoryEf();
 
-        public User authenticate(User user)
+        public User Authenticate(User user)
         {
             User userFromDb = repo.Find(user.Login);
             if (!userFromDb.Password.Equals(user.Password))
