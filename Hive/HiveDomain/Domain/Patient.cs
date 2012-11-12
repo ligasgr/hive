@@ -17,5 +17,7 @@ namespace Hive.Domain
         public string LastName { get; set; }
         [DataMember]
         public string Pesel { get; set; }
+        [DataMember]
+        public DateTime? BirthDate { get; set; }
     }
 }

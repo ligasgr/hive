@@ -14,7 +14,13 @@
   </xs:complexType>
   <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient" />
   <xs:complexType name="Patient">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pesel" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="Patient" nillable="true" type="tns:Patient" />
 </xs:schema>

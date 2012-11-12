@@ -29,6 +29,7 @@ namespace Hive.Repository
             result.FirstName = p.FirstName;
             result.LastName = p.LastName;
             result.Pesel = p.Pesel;
+            result.BirthDate = p.BirthDate;
 
             return result;
         }

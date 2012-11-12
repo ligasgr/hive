@@ -12,16 +12,16 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Name="patientsButton" Grid.Row="1" Grid.Column="0" Height="90" Width="90" Click="patientsButton_Click">
+        <Button Name="patientsButton" Grid.Row="1" Grid.Column="0" Height="92" Width="90" Click="patientsButton_Click">
             <StackPanel Orientation="Vertical">
                 <Image Height="64" Source="Icons/user_group.ico" />
-                <TextBlock Text="Patients" Margin="0,2,0,2" HorizontalAlignment="Center"/>
+                <Label Content="_Patients" Margin="0,2,0,2" Target="{Binding ElementName=patientsButton}" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Name="advicesButton" Grid.Row="1" Grid.Column="1" Height="90" Width="90" Click="advicesButton_Click">
+        <Button Name="advicesButton" Grid.Row="1" Grid.Column="1" Height="92" Width="90" Click="advicesButton_Click">
             <StackPanel Orientation="Vertical">
-                <Image Height="64" Margin="1" Source="Icons/text_edit.ico" />
-                <TextBlock Text="Advices" Margin="0,2,0,2" HorizontalAlignment="Center"/>
+                <Image Height="64" Source="Icons/text_edit.ico" />
+                <Label Content="_Advices" Margin="0,2,0,2" Target="{Binding ElementName=advicesButton}" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
     </Grid>
