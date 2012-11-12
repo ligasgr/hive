@@ -24,5 +24,6 @@
                 <Label Content="_Advices" Margin="0,2,0,2" Target="{Binding ElementName=advicesButton}" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
+        <Button Name="cancelButton" Grid.Row="2" Grid.Column="1" Content="_Cancel" IsCancel="True" Click="cancelButton_Click" Width="0" Height="0"/>
     </Grid>
 </Window>

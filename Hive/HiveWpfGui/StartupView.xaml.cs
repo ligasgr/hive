@@ -37,5 +37,10 @@ namespace Hive.WpfGui
             var view = new AdviceSearchView();
             view.Show();
         }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

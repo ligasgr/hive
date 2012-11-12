@@ -67,5 +67,15 @@ namespace Hive.WpfGui
                 patientsDataView.Source = patientSearchList;
             }
         }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void viewPatientButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
