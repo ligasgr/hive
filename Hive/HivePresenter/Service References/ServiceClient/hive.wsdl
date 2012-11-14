@@ -12,6 +12,7 @@
       <xsd:import namespace="http://ligasgr.net/services/hive" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Hive.Domain" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="HiveService_Authenticate_InputMessage">
@@ -24,6 +25,9 @@
   <wsdl:message name="FindPatientsResponse">
     <wsdl:part name="parameters" element="tns:FindPatientsResponse" />
   </wsdl:message>
+  <wsdl:message name="WsFilter">
+    <wsdl:part name="parameters" element="tns:WsFilter" />
+  </wsdl:message>
   <wsdl:portType name="HiveService">
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/Authenticate" message="tns:HiveService_Authenticate_InputMessage" />
@@ -32,6 +36,10 @@
     <wsdl:operation name="FindAllPatiens">
       <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindAllPatiens" message="tns:HiveService_FindAllPatiens_InputMessage" />
       <wsdl:output wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindAllPatiensResponse" name="FindPatientsResponse" message="tns:FindPatientsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPatients">
+      <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatients" name="WsFilter" message="tns:WsFilter" />
+      <wsdl:output wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatientsResponse" name="FindPatientsResponse" message="tns:FindPatientsResponse" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_HiveService" type="tns:HiveService">
@@ -49,6 +57,15 @@
     <wsdl:operation name="FindAllPatiens">
       <soap12:operation soapAction="http://ligasgr.net/services/hive/HiveService/FindAllPatiens" style="document" />
       <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FindPatientsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPatients">
+      <soap12:operation soapAction="http://ligasgr.net/services/hive/HiveService/FindPatients" style="document" />
+      <wsdl:input name="WsFilter">
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output name="FindPatientsResponse">

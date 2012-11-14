@@ -9,5 +9,7 @@ namespace Hive.Repository
     public interface PatientRepository
     {
         IEnumerable<Patient> FindAll();
+
+        IEnumerable<Patient> FindFiltered(Filter filter);
     }
 }

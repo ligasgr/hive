@@ -76,6 +76,9 @@
     <None Include="App.config" />
     <None Include="Properties\DataSources\Hive.Domain.Patient.datasource" />
     <None Include="Properties\DataSources\Hive.Domain.User.datasource" />
+    <None Include="Service References\ServiceClient\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceClient\Hive.Domain.xsd">
       <SubType>Designer</SubType>
     </None>

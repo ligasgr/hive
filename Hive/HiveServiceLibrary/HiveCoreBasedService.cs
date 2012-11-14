@@ -24,5 +24,13 @@ namespace Hive.ServiceLibrary
             response.Results = new PatientRepositoryEf().FindAll();
             return response;
         }
+
+
+        public Contract.FindPatientsResponse FindPatients(Contract.WsFilter filter)
+        {
+            Contract.FindPatientsResponse response = new Contract.FindPatientsResponse();
+            response.Results = new PatientRepositoryEf().FindFiltered(filter);
+            return response;
+        }
     }
 }

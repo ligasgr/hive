@@ -10,6 +10,9 @@ namespace Hive.Presenter.ViewInterface
     {
         string ErrorMessage { set; }
         string ErrorDetails { set; }
+        string FirstNameFilter { get; }
+        string LastNameFilter { get; }
+        string PeselFilter { get; }
         IList<Patient> PatientSearchResultsList { get; set; }
 
         event VoidEventHandler PatientSearchResult;

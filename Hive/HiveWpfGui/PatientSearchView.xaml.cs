@@ -48,6 +48,21 @@ namespace Hive.WpfGui
             set { throw new NotImplementedException(); }
         }
 
+        public string FirstNameFilter
+        {
+            get { return firstNameField.Text; }
+        }
+
+        public string LastNameFilter
+        {
+            get { return lastNameField.Text; }
+        }
+
+        public string PeselFilter
+        {
+            get { return peselField.Text; }
+        }
+
         public event Presenter.ViewInterface.VoidEventHandler PatientSearchResult;
 
 
@@ -74,6 +89,11 @@ namespace Hive.WpfGui
         }
 
         private void viewPatientButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void deletePatientButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

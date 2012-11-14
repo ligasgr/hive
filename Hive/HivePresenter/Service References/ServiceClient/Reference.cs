@@ -21,6 +21,10 @@ namespace Hive.Presenter.ServiceClient {
         // CODEGEN: Generating message contract since the operation FindAllPatiens is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="http://ligasgr.net/services/hive/HiveService/FindAllPatiens", ReplyAction="http://ligasgr.net/services/hive/HiveService/FindAllPatiensResponse")]
         Hive.Presenter.ServiceClient.FindPatientsResponse FindAllPatiens(Hive.Presenter.ServiceClient.FindAllPatiensRequest request);
+        
+        // CODEGEN: Generating message contract since the wrapper name (WsFilter) of message WsFilter does not match the default value (FindPatients)
+        [System.ServiceModel.OperationContractAttribute(Action="http://ligasgr.net/services/hive/HiveService/FindPatients", ReplyAction="http://ligasgr.net/services/hive/HiveService/FindPatientsResponse")]
+        Hive.Presenter.ServiceClient.FindPatientsResponse FindPatients(Hive.Presenter.ServiceClient.WsFilter request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -47,6 +51,23 @@ namespace Hive.Presenter.ServiceClient {
         
         public FindPatientsResponse(System.Collections.Generic.List<Hive.Domain.Patient> Results) {
             this.Results = Results;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="WsFilter", WrapperNamespace="http://ligasgr.net/services/hive", IsWrapped=true)]
+    public partial class WsFilter {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ligasgr.net/services/hive", Order=0)]
+        public System.Collections.Generic.Dictionary<string, object> FilterSpecification;
+        
+        public WsFilter() {
+        }
+        
+        public WsFilter(System.Collections.Generic.Dictionary<string, object> FilterSpecification) {
+            this.FilterSpecification = FilterSpecification;
         }
     }
     
@@ -89,6 +110,18 @@ namespace Hive.Presenter.ServiceClient {
         public System.Collections.Generic.List<Hive.Domain.Patient> FindAllPatiens() {
             Hive.Presenter.ServiceClient.FindAllPatiensRequest inValue = new Hive.Presenter.ServiceClient.FindAllPatiensRequest();
             Hive.Presenter.ServiceClient.FindPatientsResponse retVal = ((Hive.Presenter.ServiceClient.HiveService)(this)).FindAllPatiens(inValue);
+            return retVal.Results;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Hive.Presenter.ServiceClient.FindPatientsResponse Hive.Presenter.ServiceClient.HiveService.FindPatients(Hive.Presenter.ServiceClient.WsFilter request) {
+            return base.Channel.FindPatients(request);
+        }
+        
+        public System.Collections.Generic.List<Hive.Domain.Patient> FindPatients(System.Collections.Generic.Dictionary<string, object> FilterSpecification) {
+            Hive.Presenter.ServiceClient.WsFilter inValue = new Hive.Presenter.ServiceClient.WsFilter();
+            inValue.FilterSpecification = FilterSpecification;
+            Hive.Presenter.ServiceClient.FindPatientsResponse retVal = ((Hive.Presenter.ServiceClient.HiveService)(this)).FindPatients(inValue);
             return retVal.Results;
         }
     }

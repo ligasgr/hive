@@ -62,6 +62,9 @@
             <Button Name="viewPatientButton" Click="viewPatientButton_Click" Height="32" Width="75" VerticalAlignment="Top">
                 <Label Content="_View" Target="{Binding ElementName=viewPatientButton}"/>
             </Button>
+            <Button Name="deletePatientButton" Click="deletePatientButton_Click" Height="32" Width="75" VerticalAlignment="Top" Margin="0,35,0,0">
+                <Label Content="_Delete" Target="{Binding ElementName=deletePatientButton}"/>
+            </Button>
             <Button Name="cancelButton" Click="cancelButton_Click" Height="32" Width="75" VerticalAlignment="Bottom" IsCancel="True">
                 <Label Content="_Cancel" Target="{Binding ElementName=cancelButton}"/>
             </Button>

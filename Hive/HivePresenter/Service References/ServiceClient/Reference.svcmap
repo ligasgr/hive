@@ -27,6 +27,7 @@
     <MetadataFile FileName="hive.xsd" MetadataType="Schema" ID="8762956d-1d2d-4f90-b87c-e761affd6fbe" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e689538e-ed9d-4859-9660-17f7f7668dd7" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
     <MetadataFile FileName="Hive.Domain.xsd" MetadataType="Schema" ID="01e3c1f9-c421-4840-b2c5-caf3f55d5741" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="29774269-ff76-48f3-9665-f5223978fc50" SourceId="1" SourceUrl="http://localhost:8732/HiveServiceLibrary/HiveService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

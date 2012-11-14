@@ -5,6 +5,7 @@ using System.Text;
 using Hive.Presenter.PresenterInterface;
 using Hive.Presenter.ViewInterface;
 using Hive.Presenter.ServiceClient;
+using Hive.Domain;
 
 namespace Hive.Presenter.Presenter
 {
@@ -25,7 +26,23 @@ namespace Hive.Presenter.Presenter
         {
             using (HiveServiceClient service = new HiveServiceClient())
             {
-                view.PatientSearchResultsList = service.FindAllPatiens();
+                if (view.FirstNameFilter.Equals(string.Empty)
+                    && view.LastNameFilter.Equals(string.Empty)
+                    && view.PeselFilter.Equals(string.Empty))
+                {
+                    view.PatientSearchResultsList = service.FindAllPatiens();
+                }
+                else
+                {
+                    Dictionary<string, object> fields = new Dictionary<string, object>();
+                    if (!view.FirstNameFilter.Equals(string.Empty))
+                        fields.Add("FirstName", view.FirstNameFilter);
+                    if (!view.LastNameFilter.Equals(string.Empty))
+                        fields.Add("LastName", view.LastNameFilter);
+                    if (!view.PeselFilter.Equals(string.Empty))
+                        fields.Add("Pesel", view.PeselFilter);
+                    view.PatientSearchResultsList = service.FindPatients(fields);
+                }
             }
         }
 

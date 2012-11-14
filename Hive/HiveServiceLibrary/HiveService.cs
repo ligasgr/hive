@@ -22,5 +22,8 @@ namespace Hive.ServiceLibrary
 
         [OperationContract]
         FindPatientsResponse FindAllPatiens();
+
+        [OperationContract]
+        FindPatientsResponse FindPatients(WsFilter filter);
     }
 }

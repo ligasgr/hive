@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Hive.Model;
+using System.Data.Objects;
 
 namespace Hive.Repository
 {
@@ -17,6 +18,28 @@ namespace Hive.Repository
                 foreach (Patient p in results.ToList())
                 {
                     patientList.AddLast(fromModel(p));
+                }
+            }
+            return patientList;
+        }
+
+        public IEnumerable<Domain.Patient> FindFiltered(Domain.Filter filter)
+        {
+            LinkedList<Domain.Patient> patientList = new LinkedList<Domain.Patient>();
+            using (HiveEntities db = new HiveEntities())
+            {
+                string query = filter.ToQuery("it", "and");
+                if (!query.Equals(string.Empty))
+                {
+                    var results = db.Patients.Where(query);
+                    foreach (Patient p in results.ToList())
+                    {
+                        patientList.AddLast(fromModel(p));
+                    }
+                }
+                else
+                {
+                    return FindAll();
                 }
             }
             return patientList;
