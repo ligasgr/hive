@@ -18,6 +18,16 @@ namespace Hive.Domain
         [DataMember]
         public string Pesel { get; set; }
         [DataMember]
+        public string IdDocument { get; set; }
+        [DataMember]
+        public string BirthPlace { get; set; }
+        [DataMember]
         public DateTime? BirthDate { get; set; }
+        [DataMember]
+        public Address Address { get; set; }
+        [DataMember]
+        public ContactInfo ContactInfo { get; set; }
+        [DataMember]
+        public IList<Advice> Advices { get; set; }
     }
 }

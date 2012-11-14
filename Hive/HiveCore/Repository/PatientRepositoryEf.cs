@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Hive.Model;
 using System.Data.Objects;
+using Hive.Adapter;
 
 namespace Hive.Repository
 {
@@ -17,7 +18,7 @@ namespace Hive.Repository
                 var results = from p in db.Patients orderby p.Id select p;
                 foreach (Patient p in results.ToList())
                 {
-                    patientList.AddLast(fromModel(p));
+                    patientList.AddLast(PatientAdapter.fromModel(p, false));
                 }
             }
             return patientList;
@@ -34,7 +35,7 @@ namespace Hive.Repository
                     var results = db.Patients.Where(query);
                     foreach (Patient p in results.ToList())
                     {
-                        patientList.AddLast(fromModel(p));
+                        patientList.AddLast(PatientAdapter.fromModel(p, false));
                     }
                 }
                 else
@@ -45,16 +46,16 @@ namespace Hive.Repository
             return patientList;
         }
 
-        private static Domain.Patient fromModel(Patient p)
+        public Domain.Patient Find(long id)
         {
-            Domain.Patient result = new Domain.Patient();
-            result.Id = p.Id;
-            result.FirstName = p.FirstName;
-            result.LastName = p.LastName;
-            result.Pesel = p.Pesel;
-            result.BirthDate = p.BirthDate;
-
-            return result;
+            using (HiveEntities db = new HiveEntities())
+            {
+                var result = from p in db.Patients 
+                             join a in db.Advices on p.Id equals a.PatientId 
+                             where p.Id == id select p;
+                Domain.Patient patient = PatientAdapter.fromModel(result.Single(), true);
+                return patient;
+            }
         }
     }
 }

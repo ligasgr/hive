@@ -11,5 +11,7 @@ namespace Hive.Repository
         IEnumerable<Patient> FindAll();
 
         IEnumerable<Patient> FindFiltered(Filter filter);
+
+        Patient Find(Int64 id);
     }
 }
