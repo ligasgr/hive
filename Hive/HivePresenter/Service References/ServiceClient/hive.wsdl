@@ -28,6 +28,12 @@
   <wsdl:message name="WsFilter">
     <wsdl:part name="parameters" element="tns:WsFilter" />
   </wsdl:message>
+  <wsdl:message name="HiveService_FindPatientById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPatientById" />
+  </wsdl:message>
+  <wsdl:message name="HiveService_FindPatientById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPatientByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="HiveService">
     <wsdl:operation name="Authenticate">
       <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/Authenticate" message="tns:HiveService_Authenticate_InputMessage" />
@@ -40,6 +46,10 @@
     <wsdl:operation name="FindPatients">
       <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatients" name="WsFilter" message="tns:WsFilter" />
       <wsdl:output wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatientsResponse" name="FindPatientsResponse" message="tns:FindPatientsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPatientById">
+      <wsdl:input wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatientById" message="tns:HiveService_FindPatientById_InputMessage" />
+      <wsdl:output wsaw:Action="http://ligasgr.net/services/hive/HiveService/FindPatientByIdResponse" message="tns:HiveService_FindPatientById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_HiveService" type="tns:HiveService">
@@ -69,6 +79,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output name="FindPatientsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPatientById">
+      <soap12:operation soapAction="http://ligasgr.net/services/hive/HiveService/FindPatientById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

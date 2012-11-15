@@ -57,7 +57,7 @@
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastVisit" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LastVisit" Type="datetime" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -156,7 +156,7 @@
           <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Mobile" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Binary" Name="LastVisit" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="DateTime" Name="LastVisit" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Advices" Relationship="HiveDbModel.FK_Advices_Patients" FromRole="Patient" ToRole="Advice" />
         </EntityType>
         <Association Name="FK_Advices_AdviceTemplates">

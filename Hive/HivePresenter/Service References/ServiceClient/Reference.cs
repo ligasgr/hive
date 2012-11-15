@@ -25,6 +25,9 @@ namespace Hive.Presenter.ServiceClient {
         // CODEGEN: Generating message contract since the wrapper name (WsFilter) of message WsFilter does not match the default value (FindPatients)
         [System.ServiceModel.OperationContractAttribute(Action="http://ligasgr.net/services/hive/HiveService/FindPatients", ReplyAction="http://ligasgr.net/services/hive/HiveService/FindPatientsResponse")]
         Hive.Presenter.ServiceClient.FindPatientsResponse FindPatients(Hive.Presenter.ServiceClient.WsFilter request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ligasgr.net/services/hive/HiveService/FindPatientById", ReplyAction="http://ligasgr.net/services/hive/HiveService/FindPatientByIdResponse")]
+        Hive.Domain.Patient FindPatientById(long patientId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -123,6 +126,10 @@ namespace Hive.Presenter.ServiceClient {
             inValue.FilterSpecification = FilterSpecification;
             Hive.Presenter.ServiceClient.FindPatientsResponse retVal = ((Hive.Presenter.ServiceClient.HiveService)(this)).FindPatients(inValue);
             return retVal.Results;
+        }
+        
+        public Hive.Domain.Patient FindPatientById(long patientId) {
+            return base.Channel.FindPatientById(patientId);
         }
     }
 }

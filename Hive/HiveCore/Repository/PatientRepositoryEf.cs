@@ -50,8 +50,7 @@ namespace Hive.Repository
         {
             using (HiveEntities db = new HiveEntities())
             {
-                var result = from p in db.Patients 
-                             join a in db.Advices on p.Id equals a.PatientId 
+                var result = from p in db.Patients
                              where p.Id == id select p;
                 Domain.Patient patient = PatientAdapter.fromModel(result.Single(), true);
                 return patient;

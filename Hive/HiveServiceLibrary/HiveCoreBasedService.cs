@@ -32,5 +32,11 @@ namespace Hive.ServiceLibrary
             response.Results = new PatientRepositoryEf().FindFiltered(filter);
             return response;
         }
+
+        public Patient FindPatientById(Int64 patientId)
+        {
+            Patient response = new PatientRepositoryEf().Find(patientId);
+            return response;
+        }
     }
 }

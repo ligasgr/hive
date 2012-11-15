@@ -25,5 +25,8 @@ namespace Hive.ServiceLibrary
 
         [OperationContract]
         FindPatientsResponse FindPatients(WsFilter filter);
+
+        [OperationContract]
+        Patient FindPatientById(Int64 patientId);
     }
 }

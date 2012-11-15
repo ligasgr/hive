@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresenterInterface\LoginPresenter.cs" />
+    <Compile Include="PresenterInterface\PatientDetailsPresenter.cs" />
     <Compile Include="PresenterInterface\PatientSearchPresenter.cs" />
     <Compile Include="Presenter\AbstractLoginPresenter.cs" />
     <Compile Include="Presenter\LoginPresenterLocal.cs" />
+    <Compile Include="Presenter\PatientDetailsPresenterWs.cs" />
     <Compile Include="Presenter\PatientSearchPresenterWs.cs" />
     <Compile Include="Presenter\LoginPresenterWs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +58,7 @@
     </Compile>
     <Compile Include="ViewInterface\EditableView.cs" />
     <Compile Include="ViewInterface\LoginView.cs" />
+    <Compile Include="ViewInterface\PatientDetailsView.cs" />
     <Compile Include="ViewInterface\PatientSearchView.cs" />
     <Compile Include="ViewInterface\View.cs" />
   </ItemGroup>

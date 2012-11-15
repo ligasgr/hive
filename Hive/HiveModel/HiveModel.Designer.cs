@@ -966,23 +966,23 @@ namespace Hive.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte[] LastVisit
+        public Nullable<global::System.DateTime> LastVisit
         {
             get
             {
-                return StructuralObject.GetValidValue(_LastVisit);
+                return _LastVisit;
             }
             set
             {
                 OnLastVisitChanging(value);
                 ReportPropertyChanging("LastVisit");
-                _LastVisit = StructuralObject.SetValidValue(value, true);
+                _LastVisit = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("LastVisit");
                 OnLastVisitChanged();
             }
         }
-        private global::System.Byte[] _LastVisit;
-        partial void OnLastVisitChanging(global::System.Byte[] value);
+        private Nullable<global::System.DateTime> _LastVisit;
+        partial void OnLastVisitChanging(Nullable<global::System.DateTime> value);
         partial void OnLastVisitChanged();
 
         #endregion

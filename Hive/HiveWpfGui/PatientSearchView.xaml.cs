@@ -90,7 +90,9 @@ namespace Hive.WpfGui
 
         private void viewPatientButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectedPatient = PatientList.SelectedItem;
+            if (selectedPatient != null)
+                new PatientDetailsView(((Patient)selectedPatient).Id).ShowDialog();
         }
 
         private void deletePatientButton_Click(object sender, RoutedEventArgs e)
